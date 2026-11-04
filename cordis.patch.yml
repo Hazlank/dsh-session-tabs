@@ -1,0 +1,16 @@
+# dsh-session-tabs bundle patch: insert the dual-face plugin row into the web
+# profile roster.
+#
+#   host half    exports "."        -> loopback tab-state routes
+#                                     (GET/POST /api/dsh-session-tabs/state)
+#   browser half exports "./client" -> the tab strip itself, loaded through
+#                                     package.json `dsh.client`
+#
+# Install with (non-desktop profiles):
+#   dsh plugin --profile <name> add link:/absolute/path/to/dsh-session-tabs
+#
+# The desktop profile is owned by the Electron app, so install it with a
+# node_modules symlink plus the insert row below (see README).
+- insert:
+    - id: session-tabs
+      name: 'dsh-session-tabs'
