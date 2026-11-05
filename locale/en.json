@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session Tabs",
+    "description": "Chrome-style session tabs for the DSH Web GUI, with unread and attention badges, toasts, notification sound, and tabs that survive reloads and app restarts."
+  }
+}

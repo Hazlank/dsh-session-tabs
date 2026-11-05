@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Session Tabs">
+  <rect width="128" height="128" rx="28" fill="#111827"/>
+  <rect x="22" y="22" width="48" height="48" rx="11" fill="none" stroke="#ffffff" stroke-opacity="0.45" stroke-width="4"/>
+  <rect x="46" y="46" width="60" height="60" rx="14" fill="#ffffff" fill-opacity="0.94" stroke="#ffffff" stroke-width="4"/>
+</svg>

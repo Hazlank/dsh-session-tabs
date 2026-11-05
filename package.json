@@ -1,10 +1,34 @@
 {
-  "name": "dsh-session-tabs",
-  "version": "0.11.1",
-  "description": "Chrome-style session tabs for the DSH Web GUI: click a session to pin it, labels show 工作区 - 任务名, running/waiting/done badges, right-side completion toasts with a jump button, optional configurable notification sound, settings, and tabs that survive reloads and app restarts via a loopback host store.",
+  "name": "@hazlank/dsh-session-tabs",
+  "version": "0.12.0",
+  "description": "Chrome-style session tabs for the DSH Web GUI with unread and attention badges, toasts, and restart-safe persistence.",
+  "author": "Hazlank",
+  "license": "MIT",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
+  "icon": "./icon.svg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hazlank/dsh-session-tabs.git"
+  },
+  "homepage": "https://github.com/Hazlank/dsh-session-tabs#readme",
+  "bugs": {
+    "url": "https://github.com/Hazlank/dsh-session-tabs/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "session-tabs",
+    "tabs",
+    "notifications"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.1-rc.5 <0.2.2"
+  },
   "exports": {
     ".": {
       "types": "./lib/types/index.d.ts",
@@ -14,10 +38,20 @@
       "types": "./lib/types/client/index.d.ts",
       "default": "./lib/client.js"
     },
+    "./locale/*.json": "./locale/*.json",
     "./package.json": "./package.json"
   },
   "dsh": {
     "manifestVersion": 1,
+    "capabilities": [
+      "fs:read",
+      "fs:write",
+      "network:ingress",
+      "network:egress"
+    ],
+    "labels": [
+      "remote-access"
+    ],
     "bundle": {
       "patch": "./cordis.patch.yml"
     },
@@ -34,7 +68,21 @@
   "files": [
     "lib",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "icon.svg",
+    "locale/*.json",
+    "CHANGELOG.md"
   ],
-  "license": "MIT"
+  "scripts": {
+    "check": "node --check lib/client.js && node --check lib/index.js",
+    "test": "node --test test/*.test.js",
+    "pack:check": "npm pack --dry-run --json",
+    "prepublishOnly": "npm run check && npm test"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
