@@ -1,6 +1,6 @@
 {
   "name": "dsh-session-tabs",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "Chrome-style session tabs for the DSH Web GUI: click a session to pin it, labels show 工作区 - 任务名, running/waiting/done badges, right-side completion toasts with a jump button, optional configurable notification sound, settings, and tabs that survive reloads and app restarts via a loopback host store.",
   "type": "module",
   "main": "lib/index.js",
